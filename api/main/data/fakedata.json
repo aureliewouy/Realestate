@@ -1,179 +1,178 @@
 [
-    {
-        "model": "main.Main",
-        "pk": 1,
-        "fields": {
-            "title": "Luxury Office Space",
-            "address": "Downtown Street",
-            "transaction_type": "rental",
-            "realty_type": "office",
-            "publication_date": "2023-11-01T10:05:01.985716Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 2,
-        "fields": {
-            "title": "Spacious Warehouse",
-            "address": "Industrial Area",
-            "transaction_type": "sale",
-            "realty_type": "warehouse",
-            "publication_date": "2023-10-30T08:15:00.123456Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 3,
-        "fields": {
-            "title": "Modern Retail Store",
-            "address": "Shopping Mall",
-            "transaction_type": "sale",
-            "realty_type": "retail",
-            "publication_date": "2023-10-25T14:30:30.987654Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 4,
-        "fields": {
-            "title": "Cozy Office Suite",
-            "address": "Financial District",
-            "transaction_type": "rental",
-            "realty_type": "office",
-            "publication_date": "2023-10-22T17:45:15.789012Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 5,
-        "fields": {
-            "title": "Prime Land Plot",
-            "address": "Suburban Area",
-            "transaction_type": "sale",
-            "realty_type": "land_plot",
-            "publication_date": "2023-10-20T20:20:20.567890Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 6,
-        "fields": {
-            "title": "Stylish Coworking Space",
-            "address": "City Center",
-            "transaction_type": "rental",
-            "realty_type": "coworking",
-            "publication_date": "2023-10-18T12:10:05.432109Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 7,
-        "fields": {
-            "title": "Central Office Building",
-            "address": "Main Street",
-            "transaction_type": "sale",
-            "realty_type": "office",
-            "publication_date": "2023-10-15T09:25:40.234567Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 8,
-        "fields": {
-            "title": "Rural Land Parcel",
-            "address": "Countryside",
-            "transaction_type": "sale",
-            "realty_type": "land_plot",
-            "publication_date": "2023-10-12T18:00:00.111222Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 9,
-        "fields": {
-            "title": "Elegant Retail Shop",
-            "address": "High Street",
-            "transaction_type": "rental",
-            "realty_type": "retail",
-            "publication_date": "2023-10-10T15:35:59.111111Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 10,
-        "fields": {
-            "title": "Modern Warehouse Complex",
-            "address": "Industrial Zone",
-            "transaction_type": "sale",
-            "realty_type": "warehouse",
-            "publication_date": "2023-10-08T14:40:35.987123Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 11,
-        "fields": {
-            "title": "Spacious Office Tower",
-            "address": "Financial Street",
-            "transaction_type": "rental",
-            "realty_type": "office",
-            "publication_date": "2023-10-05T13:20:10.876543Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 12,
-        "fields": {
-            "title": "Large Land Development",
-            "address": "Suburban Area, Paris",
-            "transaction_type": "sale",
-            "realty_type": "land_plot",
-            "publication_date": "2023-10-03T19:55:25.333333Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 13,
-        "fields": {
-            "title": "Cozy Coworking Space",
-            "address": "Old City Center",
-            "transaction_type": "rental",
-            "realty_type": "coworking",
-            "publication_date": "2023-10-01T22:10:50.444555Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 14,
-        "fields": {
-            "title": "Downtown Retail Space",
-            "address": "Super Shopping Mall",
-            "transaction_type": "sale",
-            "realty_type": "retail",
-            "publication_date": "2023-09-28T11:30:05.666777Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 15,
-        "fields": {
-            "title": "Industrial Warehouse",
-            "address": "Industrial Park",
-            "transaction_type": "sale",
-            "realty_type": "warehouse",
-            "publication_date": "2023-09-25T16:45:55.555555Z"
-        }
-    },
-    {
-        "model": "main.Main",
-        "pk": 16,
-        "fields": {
-            "title": "Corporate Office Suite",
-            "address": "Main Avenue",
-            "transaction_type": "rental",
-            "realty_type": "office",
-            "publication_date": "2023-09-23T18:25:25.123456Z"
-        }
+  {
+    "model": "main.Main",
+    "pk": 1,
+    "fields": {
+      "title": "Luxury Office Space",
+      "address": "Downtown Street",
+      "transaction_type": "rental",
+      "realty_type": "office",
+      "publication_date": "2023-11-01T10:05:01.985716Z"
     }
+  },
+  {
+    "model": "main.Main",
+    "pk": 2,
+    "fields": {
+      "title": "Spacious Warehouse",
+      "address": "Industrial Area",
+      "transaction_type": "sale",
+      "realty_type": "warehouse",
+      "publication_date": "2023-10-30T08:15:00.123456Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 3,
+    "fields": {
+      "title": "Modern Retail Store",
+      "address": "Shopping Mall",
+      "transaction_type": "sale",
+      "realty_type": "retail",
+      "publication_date": "2023-10-25T14:30:30.987654Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 4,
+    "fields": {
+      "title": "Cozy Office Suite",
+      "address": "Financial District",
+      "transaction_type": "rental",
+      "realty_type": "office",
+      "publication_date": "2023-10-22T17:45:15.789012Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 5,
+    "fields": {
+      "title": "Prime Land Plot",
+      "address": "Suburban Area",
+      "transaction_type": "sale",
+      "realty_type": "land_plot",
+      "publication_date": "2023-10-20T20:20:20.567890Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 6,
+    "fields": {
+      "title": "Stylish Coworking Space",
+      "address": "City Center",
+      "transaction_type": "rental",
+      "realty_type": "coworking",
+      "publication_date": "2023-10-18T12:10:05.432109Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 7,
+    "fields": {
+      "title": "Central Office Building",
+      "address": "Main Street",
+      "transaction_type": "sale",
+      "realty_type": "office",
+      "publication_date": "2023-10-15T09:25:40.234567Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 8,
+    "fields": {
+      "title": "Rural Land Parcel",
+      "address": "Countryside",
+      "transaction_type": "sale",
+      "realty_type": "land_plot",
+      "publication_date": "2023-10-12T18:00:00.111222Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 9,
+    "fields": {
+      "title": "Elegant Retail Shop",
+      "address": "High Street",
+      "transaction_type": "rental",
+      "realty_type": "retail",
+      "publication_date": "2023-10-10T15:35:59.111111Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 10,
+    "fields": {
+      "title": "Modern Warehouse Complex",
+      "address": "Industrial Zone",
+      "transaction_type": "sale",
+      "realty_type": "warehouse",
+      "publication_date": "2023-10-08T14:40:35.987123Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 11,
+    "fields": {
+      "title": "Spacious Office Tower",
+      "address": "Financial Street",
+      "transaction_type": "rental",
+      "realty_type": "office",
+      "publication_date": "2023-10-05T13:20:10.876543Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 12,
+    "fields": {
+      "title": "Large Land Development",
+      "address": "Suburban Area, Paris",
+      "transaction_type": "sale",
+      "realty_type": "land_plot",
+      "publication_date": "2023-10-03T19:55:25.333333Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 13,
+    "fields": {
+      "title": "Cozy Coworking Space",
+      "address": "Old City Center",
+      "transaction_type": "rental",
+      "realty_type": "coworking",
+      "publication_date": "2023-10-01T22:10:50.444555Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 14,
+    "fields": {
+      "title": "Downtown Retail Space",
+      "address": "Super Shopping Mall",
+      "transaction_type": "sale",
+      "realty_type": "retail",
+      "publication_date": "2023-09-28T11:30:05.666777Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 15,
+    "fields": {
+      "title": "Industrial Warehouse",
+      "address": "Industrial Park",
+      "transaction_type": "sale",
+      "realty_type": "warehouse",
+      "publication_date": "2023-09-25T16:45:55.555555Z"
+    }
+  },
+  {
+    "model": "main.Main",
+    "pk": 16,
+    "fields": {
+      "title": "Corporate Office Suite",
+      "address": "Main Avenue",
+      "transaction_type": "rental",
+      "realty_type": "office",
+      "publication_date": "2023-09-23T18:25:25.123456Z"
+    }
+  }
 ]
-       

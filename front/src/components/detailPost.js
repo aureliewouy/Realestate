@@ -11,11 +11,11 @@ function DetailPost(props) {
       .then((data) => {
         setData(data);
       });
-    }, [props.id]);
+  }, [props.id]);
 
-    const handleUpdate = () => {
-        setEdit(!edit);
-    }
+  const handleUpdate = () => {
+    setEdit(!edit);
+  };
   return (
     <div>
       <h1>Le detail de l'annonce </h1>
@@ -30,7 +30,7 @@ function DetailPost(props) {
         )}
         <button onClick={handleUpdate}>Modifier l'annonce</button>
       </div>
-      {edit && <UpdatePost id={data.id}/> }
+      {edit && <UpdatePost id={data.id} />}
     </div>
   );
 }

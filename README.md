@@ -14,7 +14,7 @@ If you're going to use git, set it up in the directory containing both back and 
 
 If you don't have it yet, you will have to install [docker](https://www.docker.com/) and create containers corresponding to the api and the database.
 
-### The task 
+### The task
 
 The task itself is quite simple.
 As you may know, bureauxlocaux.com is a website hosting real estate listings.
@@ -22,8 +22,8 @@ The objective is to create a simple app with a list and detail view of real esta
 
 The list view should be a table and have the following structure:
 
-| Title        | Address           | Transaction type  | Realty type | Publication date |
-| ------------ | ----------------- | ----------------- | ----------- | ---------------- |
+| Title | Address | Transaction type | Realty type | Publication date |
+| ----- | ------- | ---------------- | ----------- | ---------------- |
 
 The transaction type might be either a rental or a sale.
 The realty type might be one of: office, land plot, warehouse, retail or coworking.
@@ -36,30 +36,34 @@ All of the fields have to be editable.
 There are no other structural or style constraints.
 
 ### Bonus tasks
+
 - tests
 - list view: filtering and sorting
 
 ### Code constraints
+
 - In react, you may only use functional components and hooks (no classes) -> [doc](https://reactjs.org/docs/hooks-intro.html)
 - The django backend will only be used as an api -> [doc](https://www.django-rest-framework.org/)
 - Style: use flexbox and make sure the app can be displayed correctly on mobile as well.
 
 ### Tips
+
 This tutorial might be useful https://www.valentinog.com/blog/drf/
 
 ### Evaluation criteria
+
 - functionnality and conformity to specifications
 - code quality
 - style
 
 ### Output format
+
 Upon finishing the task you may zip the project and send it back via email
 or host the project online (ex. GitHub) and give us access.
 
+# Starting the project
 
-#	Starting the project
-
-## 	Install docker and docker-compose.
+## Install docker and docker-compose.
 
 - docker : [How to install (check your version)](https://docs.docker.com/engine/install/ubuntu/#installation-methods)
 - docker-compose : [How to install (check your version)](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)

@@ -41,7 +41,11 @@ function CreatePost() {
   };
   return (
     <div className="">
-        <FormPost handleSubmit={handleSubmit} handleInputChange={handleInputChange} post={post} />
+      <FormPost
+        handleSubmit={handleSubmit}
+        handleInputChange={handleInputChange}
+        post={post}
+      />
     </div>
   );
 }

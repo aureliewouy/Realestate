@@ -3,19 +3,19 @@ import { urls } from "../utils";
 import FormPost from "./formPost";
 
 function UpdatePost(props) {
-    const [post, setPost] = useState({
-      title: "",
-      address: "",
-      transaction_type: "",
-      realty_type: "",
-    });
-    useEffect(() => {
-        fetch(urls.urlDetail + props.id + '/')
-        .then((response) => response.json())
-        .then((data) => {
-            setPost(data);
-        });
-    }, [props.id]);
+  const [post, setPost] = useState({
+    title: "",
+    address: "",
+    transaction_type: "",
+    realty_type: "",
+  });
+  useEffect(() => {
+    fetch(urls.urlDetail + props.id + "/")
+      .then((response) => response.json())
+      .then((data) => {
+        setPost(data);
+      });
+  }, [props.id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +27,7 @@ function UpdatePost(props) {
     };
 
     const fetchData = () => {
-      fetch(urls.urlUpdate + props.id  + '/', {
+      fetch(urls.urlUpdate + props.id + "/", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -48,7 +48,11 @@ function UpdatePost(props) {
   };
   return (
     <div className="">
-        <FormPost handleSubmit={handleSubmit} handleInputChange={handleInputChange} post={post} />
+      <FormPost
+        handleSubmit={handleSubmit}
+        handleInputChange={handleInputChange}
+        post={post}
+      />
     </div>
   );
 }
