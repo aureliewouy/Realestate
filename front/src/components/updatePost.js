@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { urls } from "../utils";
+import { fetchData, urls } from "../utils";
 import FormPost from "./formPost";
+import { usePostContext } from "../context/postContext";
 
-function UpdatePost(props) {
+function UpdatePost() {
+  const { selectedPost } = usePostContext();
   const [post, setPost] = useState({
     title: "",
     address: "",
     transaction_type: "",
     realty_type: "",
   });
+
   useEffect(() => {
-    fetch(urls.urlDetail + props.id + "/")
-      .then((response) => response.json())
-      .then((data) => {
-        setPost(data);
-      });
-  }, [props.id]);
+    fetchData(urls.urlDetail + selectedPost, null, setPost);
+  }, [selectedPost]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,22 +24,14 @@ function UpdatePost(props) {
       transaction_type: post.transaction_type,
       realty_type: post.realty_type,
     };
-
-    const fetchData = () => {
-      fetch(urls.urlUpdate + props.id + "/", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .catch(function (error) {
-          console.log("ERROR:", error);
-        });
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
     };
-
-    fetchData();
+    fetchData(urls.urlUpdate + selectedPost + "/", config, null);
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;

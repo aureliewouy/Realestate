@@ -6,4 +6,3 @@ WORKDIR /api
 
 RUN pip install -r requirements2.txt
 ENV PYTHONPATH /api
-CMD python manage.py loaddata main/data/fakedata.json && python manage.py migrate

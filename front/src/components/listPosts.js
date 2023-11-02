@@ -1,44 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { urls } from "../utils";
-import DetailPost from "./detailPost";
+import { dateFormat, fetchData, urls } from "../utils";
+import { usePostContext } from "../context/postContext";
 
 function ListPosts() {
   const [data, setData] = useState(null);
-  const [showDetail, setShowDetail] = useState(false); // État pour gérer l'affichage de DetailPost
-  const [selectedPost, setSelectedPost] = useState("");
+  const { selectedPost, setSelectedPost } = usePostContext();
   useEffect(() => {
-    fetch(urls.urlList)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      });
+    fetchData(urls.urlList, null, setData);
   }, []);
   const handleViewDetail = (id) => {
-    setSelectedPost(id.toString());
-    setShowDetail(true);
+    setSelectedPost(id);
   };
-  //   console.log(data)
+
   return (
-    <div>
-      <h1>Les postes disponible</h1>
+    <div className="list_posts">
+      <h2>Les dernières annnonces</h2>
       <div>
         {data &&
           data.map((element) => {
             return (
-              <p
+              <div
+                className={`annonce ${
+                  selectedPost === element.id && "selected_post"
+                }`}
                 onClick={() => {
                   handleViewDetail(element.id);
                 }}
                 key={element.id}
               >
-                {" "}
-                {element.title}
-              </p>
+                <span key={element.id}>
+                  {dateFormat(element.publication_date)}
+                </span>
+                <p key={element.id + "title"}>{element.title}</p>
+                <div className="transaction" key={element.id + "transaction"}>
+                  {element.transaction_type}
+                  <span className="material-symbols-outlined">sell</span>
+                </div>
+              </div>
             );
           })}
       </div>
-      {showDetail && <DetailPost id={selectedPost} />}{" "}
-      {/* Afficher DetailPost si showDetail est true */}
     </div>
   );
 }

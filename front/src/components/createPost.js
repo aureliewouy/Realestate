@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { urls } from "../utils";
+import { fetchData, urls } from "../utils";
 import FormPost from "./formPost";
 
 function CreatePost() {
@@ -18,29 +18,22 @@ function CreatePost() {
       transaction_type: post.transaction_type,
       realty_type: post.realty_type,
     };
-
-    const fetchData = () => {
-      fetch(urls.urlCreate, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .catch(function (error) {
-          console.log("ERROR:", error);
-        });
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
     };
-
-    fetchData();
+    fetchData(urls.urlCreate, config, null);
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPost({ ...post, [name]: value });
   };
   return (
-    <div className="">
+    <div className="create_post">
+      <h2>Creer une nouvelle annonce</h2>
       <FormPost
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}

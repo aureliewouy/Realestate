@@ -1,36 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { urls } from "../utils";
+import { dateFormat, fetchData, urls } from "../utils";
 import UpdatePost from "./updatePost";
+import { usePostContext } from "../context/postContext";
 
-function DetailPost(props) {
+function DetailPost() {
+  const { selectedPost } = usePostContext();
   const [data, setData] = useState(null);
   const [edit, setEdit] = useState(false);
   useEffect(() => {
-    fetch(urls.urlDetail + props.id)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      });
-  }, [props.id]);
+    fetchData(urls.urlDetail + selectedPost, null, setData);
+  }, [selectedPost]);
 
   const handleUpdate = () => {
     setEdit(!edit);
   };
   return (
-    <div>
-      <h1>Le detail de l'annonce </h1>
-      <div>
+    <div className="detail">
+      <h2>Plus d'informations</h2>
+      <div className="info flex">
         {data && (
           <>
-            <p>{data.title}</p>
-            <p>{data.address}</p>
-            <p>{data.realty_type}</p>
-            <p>{data.transaction_type}</p>
+            <p>
+              <span>Titre</span>
+              <span>{data.title}</span>
+            </p>
+
+            <p>
+              <span>Adresse</span>
+              <span>{data.address}</span>{" "}
+            </p>
+
+            <p>
+              <span>Type de bien</span>
+              <span>{data.realty_type}</span>
+            </p>
+
+            <p>
+              <span>Transaction</span>
+              <span>{data.transaction_type}</span>
+            </p>
+
+            <p>
+              <span>Date de publication</span>
+              <span>{dateFormat(data.publication_date)}</span>{" "}
+            </p>
           </>
         )}
-        <button onClick={handleUpdate}>Modifier l'annonce</button>
       </div>
-      {edit && <UpdatePost id={data.id} />}
+      <button className="edit_btn" onClick={handleUpdate}>
+        <span className="material-symbols-outlined">edit</span>
+      </button>
+      {edit && <UpdatePost />}
     </div>
   );
 }
