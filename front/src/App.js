@@ -9,8 +9,9 @@ function App() {
   const [dataChange, setDataChange] = useState("");
   const [selectedPost, setSelectedPost] = useState(1);
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    fetchData(urls.urlList, null, setData, null);
+    fetchData(urls.urlList, null, setData, setError);
     if (dataChange) {
       fetchData(urls.urlList, null, setData, null);
     }
