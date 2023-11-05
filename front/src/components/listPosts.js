@@ -17,12 +17,6 @@ function ListPosts(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, setDataToDisplay]);
 
-  // useEffect(() => {
-  //   if (dataToDisplay) {
-  //     handleSelectedPost(dataToDisplay[0].id);
-  //   }
-  // }, [dataToDisplay]);
-
   const handleSortData = useCallback(
     (element) => {
       const newSortedData = sortData(

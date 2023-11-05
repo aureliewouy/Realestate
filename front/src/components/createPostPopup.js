@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchData, urls } from "../utils/utils";
 import PostAccepted from "./postAccepted";
 
@@ -11,7 +11,12 @@ function CreatePostPopup(props) {
     transaction_type: "",
     realty_type: "",
   });
-
+  useEffect(() => {
+    if (newPost !== null) {
+      props.handleChange(Math.random());
+    }
+    // eslint-disable-next-line
+  }, [newPost]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const config = {
@@ -22,7 +27,6 @@ function CreatePostPopup(props) {
       body: JSON.stringify(post),
     };
     fetchData(urls.urlCreate, config, setNewPost, setError);
-    props.handleChange(Math.random());
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
