@@ -90,6 +90,8 @@ python api/manage.py runserver
 Go to the front folder 
 
 ```bash
-npm install
+yarn install
 yarn start
 ```
+
+The go to your localhost:3000
