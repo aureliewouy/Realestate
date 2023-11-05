@@ -1,8 +1,10 @@
 function PostAccepted(props) {
   return (
-    <div className="validate">
-      <p>Annonce bien ajouté</p>
-      <button onClick={props.onClose}>Fermer</button>
+    <div className="accepted">
+      <p>Annonce ajouté</p>
+      <button className="create_btn" onClick={props.onClose}>
+        Fermer
+      </button>
     </div>
   );
 }

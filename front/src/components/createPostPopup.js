@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { fetchData, urls } from "../utils";
-
-import { usePostContext } from "../context/postContext";
+import { fetchData, urls } from "../utils/utils";
 import PostAccepted from "./postAccepted";
 
 function CreatePostPopup(props) {
-  const { isChangedData, setIsChangedData } = usePostContext();
   const [newPost, setNewPost] = useState(null);
   const [error, setError] = useState(null);
   const [post, setPost] = useState({
@@ -25,11 +22,11 @@ function CreatePostPopup(props) {
       body: JSON.stringify(post),
     };
     fetchData(urls.urlCreate, config, setNewPost, setError);
-    setIsChangedData(!isChangedData);
+    props.handleChange(Math.random());
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setPost({ ...post, [name]: value.trim() });
+    setPost({ ...post, [name]: value });
   };
   return (
     <div className="popup-container" onClick={props.onClose}>
@@ -40,7 +37,7 @@ function CreatePostPopup(props) {
           <>
             <h2>Creer une nouvelle annonce</h2>
             <form onSubmit={handleSubmit}>
-              <p>Title</p>
+              <p>Titre</p>
 
               <input
                 type="text"

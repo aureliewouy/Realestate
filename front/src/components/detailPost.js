@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { dateFormat, fetchData, urls } from "../utils";
-import { usePostContext } from "../context/postContext";
+import { dateFormat, fetchData, urls } from "../utils/utils";
 
-function DetailPost() {
-  const { selectedPost, isChangedData, setIsChangedData } = usePostContext();
+function DetailPost(props) {
+  const { selectedPost, handleSelectedPost, handleChange } = props;
   const [data, setData] = useState(null);
   const [newData, setNewdata] = useState(null);
   const [dataSended, setDataSended] = useState(null);
@@ -19,12 +18,13 @@ function DetailPost() {
     if (dataSended !== null) {
       setEdit(false);
       setError(null);
+      handleChange(Math.random());
     }
   }, [dataSended, setError]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewdata({ ...newData, [name]: value.trim() });
+    setNewdata({ ...newData, [name]: value });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,9 +41,9 @@ function DetailPost() {
       setDataSended,
       setError,
     );
-    setIsChangedData(!isChangedData);
+    handleSelectedPost(selectedPost);
   };
-  console.log(error);
+
   return (
     <div className="detail">
       <h2>Plus d'informations</h2>
@@ -128,7 +128,7 @@ function DetailPost() {
                       <option value="sale">Sale</option>
                     </select>
                     {error && error.hasOwnProperty("transaction_type") && (
-                      <span className="error">*{error.realty_type}</span>
+                      <span className="error">*{error.transaction_type}</span>
                     )}
                   </>
                 ) : (

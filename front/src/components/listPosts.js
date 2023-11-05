@@ -1,22 +1,27 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { dateFormat, filterData, sortData } from "../utils";
-import { usePostContext } from "../context/postContext";
+import { dateFormat, filterData, sortData } from "../utils/utils";
 import SortFilter from "./sortFilter";
 
-function ListPosts() {
-  const { data, selectedPost, setSelectedPost } = usePostContext();
+function ListPosts(props) {
+  const { data, selectedPost, handleSelectedPost } = props;
+  const [dataToDisplay, setDataToDisplay] = useState(data);
   const [sortDirection, setSortDirection] = useState({
     title: "asc",
     publication_date: "asc",
   });
-  const [dataToDisplay, setDataToDisplay] = useState(data);
 
   useEffect(() => {
     if (data) {
       setDataToDisplay(sortData(data, "publication_date", sortDirection));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [data, setDataToDisplay]);
+
+  // useEffect(() => {
+  //   if (dataToDisplay) {
+  //     handleSelectedPost(dataToDisplay[0].id);
+  //   }
+  // }, [dataToDisplay]);
 
   const handleSortData = useCallback(
     (element) => {
@@ -62,7 +67,7 @@ function ListPosts() {
                   selectedPost === element.id && "selected_post"
                 }`}
                 onClick={() => {
-                  setSelectedPost(element.id);
+                  handleSelectedPost(element.id);
                 }}
                 key={element.id}
               >

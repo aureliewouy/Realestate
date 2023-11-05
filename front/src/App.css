@@ -42,15 +42,20 @@ p {
 }
 .info p {
   padding: 10px 20px;
-  font-weight: bold;
+
   width: 45%;
   text-align: left;
   position: relative;
   background: #f0f0f0;
 }
+.info p span:first-child {
+  font-family: "Paytone One";
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f84b00;
+}
 .info p span:last-child {
   display: block;
-  font-weight: lighter;
   margin-top: 17px;
 }
 .info input,
@@ -225,6 +230,7 @@ p {
 /* POPUP */
 
 .popup-container {
+  backdrop-filter: blur(2px);
   position: fixed;
   top: 0;
   left: 0;
@@ -248,12 +254,14 @@ p {
   background-color: white;
   border-radius: 5px;
   position: relative;
+  border-radius: 5px;
 }
 .create_post .create_btn {
+  width: 120px;
   font-size: 15px;
   position: absolute;
   bottom: -20px;
-  left: 40%;
+  left: calc(50% - 60px);
 }
 input,
 select {
@@ -282,4 +290,80 @@ select:focus {
 }
 .create_post .error {
   display: block;
+}
+.accepted {
+  width: 100%;
+  height: 100%;
+  background: hsla(324, 91%, 46%, 1);
+  border-radius: 5px;
+  background: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accepted p {
+  font-family: "Paytone One", sans-serif;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: white;
+  background: radial-gradient(
+    circle,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
+  );
+  padding: 60px 40px;
+}
+@media (max-width: 900px) {
+  .App > .flex {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .list_posts {
+    width: 100%;
+    height: 450px;
+    z-index: 0;
+  }
+  .list_posts h2,
+  .detail h2 {
+    padding: 15px 5px;
+  }
+  .detail {
+    height: 370px;
+  }
+  .detail_date {
+    padding: 0 20px;
+  }
+  .detail_add_container {
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 420px;
+  }
+  .detail_add_container > div > .create_btn {
+    position: absolute;
+    width: 100px;
+    top: -90px;
+    left: calc(50% - 50px);
+    font-size: 12px;
+    border-radius: 100%;
+    box-shadow: 5px 5px 9px 5px rgba(239, 116, 92, 0.35);
+  }
+  .detail_add_container .create_btn::after {
+    border-radius: 100%;
+    z-index: -1;
+  }
+  .create_post .create_btn {
+    height: fit-content;
+    border-radius: 5px;
+    left: calc(50% - 50px);
+  }
+  .create_post {
+    width: 80%;
+    height: 60%;
+  }
+  .info select,
+  .info input {
+    width: 145px;
+  }
 }
