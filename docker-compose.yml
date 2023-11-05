@@ -5,13 +5,13 @@ services:
     build:
       context: ./api/
       dockerfile: ./docker/Dockerfile
+    depends_on:
+      - postgresql
     command: >
       sh -c "python manage.py migrate &&
              python manage.py loaddata main/data/fakedata.json &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
-    depends_on:
-      - postgresql
     ports:
       - 8000:8000
     environment:
@@ -44,5 +44,6 @@ services:
     environment:
       - POSTGRES_DB=main
       - POSTGRES_PASSWORD=bureauxlocaux123
+      - DB_USER=postgres
     ports:
       - 5432:5432
