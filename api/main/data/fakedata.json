@@ -50,7 +50,7 @@
       "title": "Prime Land Plot",
       "address": "Suburban Area",
       "transaction_type": "sale",
-      "realty_type": "land_plot",
+      "realty_type": "land plot",
       "publication_date": "2023-10-20T20:20:20.567890Z"
     }
   },
@@ -83,7 +83,7 @@
       "title": "Rural Land Parcel",
       "address": "Countryside",
       "transaction_type": "sale",
-      "realty_type": "land_plot",
+      "realty_type": "land plot",
       "publication_date": "2023-10-12T18:00:00.111222Z"
     }
   },
@@ -127,7 +127,7 @@
       "title": "Large Land Development",
       "address": "Suburban Area, Paris",
       "transaction_type": "sale",
-      "realty_type": "land_plot",
+      "realty_type": "land plot",
       "publication_date": "2023-10-03T19:55:25.333333Z"
     }
   },

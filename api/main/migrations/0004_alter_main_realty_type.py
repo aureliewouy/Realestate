@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             field=models.CharField(
                 choices=[
                     ("office", "Office"),
-                    ("land_plot", "Land_plot"),
+                    ("land plot", "Land plot"),
                     ("warehouse", "Warehouse"),
                     ("retail", "Retail"),
                     ("coworking", "Coworking"),

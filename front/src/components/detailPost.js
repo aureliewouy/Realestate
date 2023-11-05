@@ -1,56 +1,176 @@
 import React, { useEffect, useState } from "react";
 import { dateFormat, fetchData, urls } from "../utils";
-import UpdatePost from "./updatePost";
 import { usePostContext } from "../context/postContext";
 
 function DetailPost() {
-  const { selectedPost } = usePostContext();
+  const { selectedPost, isChangedData, setIsChangedData } = usePostContext();
   const [data, setData] = useState(null);
+  const [newData, setNewdata] = useState(null);
+  const [dataSended, setDataSended] = useState(null);
   const [edit, setEdit] = useState(false);
-  useEffect(() => {
-    fetchData(urls.urlDetail + selectedPost, null, setData);
-  }, [selectedPost]);
+  const [error, setError] = useState(null);
 
-  const handleUpdate = () => {
-    setEdit(!edit);
+  useEffect(() => {
+    fetchData(urls.urlDetail + selectedPost, null, setData, setError);
+    setError(null);
+  }, [selectedPost, setError, edit]);
+
+  useEffect(() => {
+    if (dataSended !== null) {
+      setEdit(false);
+      setError(null);
+    }
+  }, [dataSended, setError]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewdata({ ...newData, [name]: value.trim() });
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    };
+    fetchData(
+      urls.urlUpdate + selectedPost + "/",
+      config,
+      setDataSended,
+      setError,
+    );
+    setIsChangedData(!isChangedData);
+  };
+  console.log(error);
   return (
     <div className="detail">
       <h2>Plus d'informations</h2>
-      <div className="info flex">
-        {data && (
-          <>
-            <p>
-              <span>Titre</span>
-              <span>{data.title}</span>
-            </p>
+      <form onSubmit={handleSubmit}>
+        <div className="info flex">
+          {data && (
+            <>
+              <p>
+                <span>Titre</span>
+                {edit ? (
+                  <>
+                    <input
+                      type="text"
+                      name="title"
+                      value={newData.title}
+                      onChange={handleInputChange}
+                    ></input>
+                    {error && error.hasOwnProperty("title") && (
+                      <span className="error">*{error.title}</span>
+                    )}
+                  </>
+                ) : (
+                  <span>{data.title}</span>
+                )}
+              </p>
 
-            <p>
-              <span>Adresse</span>
-              <span>{data.address}</span>{" "}
-            </p>
+              <p>
+                <span>Adresse</span>
+                {edit ? (
+                  <>
+                    <input
+                      type="text"
+                      name="address"
+                      value={newData.address}
+                      onChange={handleInputChange}
+                    ></input>
+                    {error && error.hasOwnProperty("address") && (
+                      <span className="error">*{error.address}</span>
+                    )}
+                  </>
+                ) : (
+                  <span>{data.address}</span>
+                )}
+              </p>
 
-            <p>
-              <span>Type de bien</span>
-              <span>{data.realty_type}</span>
-            </p>
+              <p>
+                <span>Type de bien</span>
+                {edit ? (
+                  <>
+                    <select
+                      name="realty_type"
+                      value={newData.realty_type}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">--Please choose an option--</option>
+                      <option value="office">Office</option>
+                      <option value="land plot">Land plot</option>
+                      <option value="warehouse">Warehouse</option>
+                      <option value="retail">Retail</option>
+                      <option value="coworking">Coworking</option>
+                    </select>
+                    {error && error.hasOwnProperty("realty_type") && (
+                      <span className="error">*{error.realty_type}</span>
+                    )}
+                  </>
+                ) : (
+                  <span>{data.realty_type}</span>
+                )}
+              </p>
 
-            <p>
-              <span>Transaction</span>
-              <span>{data.transaction_type}</span>
-            </p>
+              <p>
+                <span>Transaction</span>
+                {edit ? (
+                  <>
+                    <select
+                      name="transaction_type"
+                      value={newData.transaction_type}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">--Please choose an option--</option>
+                      <option value="rental">Rental</option>
+                      <option value="sale">Sale</option>
+                    </select>
+                    {error && error.hasOwnProperty("transaction_type") && (
+                      <span className="error">*{error.realty_type}</span>
+                    )}
+                  </>
+                ) : (
+                  <span>{data.transaction_type}</span>
+                )}
+              </p>
 
-            <p>
-              <span>Date de publication</span>
-              <span>{dateFormat(data.publication_date)}</span>{" "}
-            </p>
-          </>
+              <div className="detail_date">
+                <span>Le {dateFormat(data.publication_date)}</span>{" "}
+              </div>
+            </>
+          )}
+        </div>
+        {edit && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              width: "30%",
+              margin: "auto",
+            }}
+          >
+            <button className="edit_btn" onClick={() => setEdit(false)}>
+              <span className="material-symbols-outlined">cancel</span>
+            </button>
+            <button className="edit_btn" type="submit">
+              <span className="material-symbols-outlined">check_circle</span>
+            </button>
+          </div>
         )}
-      </div>
-      <button className="edit_btn" onClick={handleUpdate}>
-        <span className="material-symbols-outlined">edit</span>
-      </button>
-      {edit && <UpdatePost />}
+      </form>
+      {!edit && (
+        <button
+          className="edit_btn"
+          onClick={() => {
+            setEdit(!edit);
+            setNewdata(data);
+          }}
+        >
+          <span className="material-symbols-outlined">edit</span>
+        </button>
+      )}
     </div>
   );
 }

@@ -5,8 +5,3 @@ class MainSerializer(serializers.ModelSerializer):
     class Meta:
         model = Main
         fields = '__all__'
-
-class CreateListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Main
-        fields = ('title', 'address', 'transaction_type', 'realty_type')

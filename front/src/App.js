@@ -8,9 +8,11 @@ function App() {
     <div className="App">
       <div className="flex">
         <ListPosts />
-        <DetailPost />
+        <div className="detail_add_container">
+          <DetailPost />
+          <CreatePost />
+        </div>
       </div>
-      <CreatePost />
     </div>
   );
 }

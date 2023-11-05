@@ -2,45 +2,69 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #eafbff;
+  background-color: #f7e1d7;
+}
+p {
+  text-transform: capitalize;
 }
 .App {
   text-align: center;
-  margin: 5%;
+  margin: 3%;
 }
 /* ALL PAGES */
 .flex {
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
-
+.detail_add_container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 550px;
+  justify-content: space-between;
+}
 /* DETAIL PAGE */
 .detail {
   background-color: white;
-  box-shadow: 5px 5px 9px 5px #9ce6fd;
+  box-shadow: 5px 5px 9px 5px rgba(239, 116, 92, 0.35);
   right: 2%;
   border-radius: 5px;
-  width: 65%;
+  width: 100%;
+  height: 450px;
   position: sticky;
   top: 5%;
 }
-.fixed {
-  position: fixed;
-}
 .info {
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 .info p {
-  padding: 3%;
+  padding: 10px 20px;
   font-weight: bold;
   width: 45%;
   text-align: left;
+  position: relative;
+  background: #f0f0f0;
 }
 .info p span:last-child {
   display: block;
   font-weight: lighter;
+  margin-top: 17px;
+}
+.info input,
+.info select {
+  margin-top: 10px;
+  display: block;
+  padding: 5px;
+}
+.detail_date {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  font-weight: 100;
+  padding: 10px 20px;
 }
 .edit_btn {
   border-radius: 100%;
@@ -52,20 +76,20 @@ body {
   cursor: pointer;
 }
 .edit_btn .material-symbols-outlined {
-  color: #6fcafd;
+  color: #f84b00;
 }
 /* LISTPOSTS PAGE  */
 .annonce {
-  padding: 30px 40px;
+  padding: 20px 40px;
   text-align: left;
   cursor: pointer;
   background-color: white;
   margin: 0;
-  border-bottom: 2px solid #eafbff;
+  border-bottom: 2px solid #f0f0f0;
   position: relative;
 }
 .annonce span {
-  color: #d9cdcde5;
+  font-weight: 100;
 }
 .transaction {
   position: absolute;
@@ -77,66 +101,185 @@ body {
   padding-left: 10px;
 }
 .list_posts {
+  background-color: white;
   width: 30%;
+  height: 550px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border-radius: 5px;
-  box-shadow: 5px 5px 9px 5px #9ce6fd;
+  box-shadow: 5px 5px 9px 5px rgba(239, 116, 92, 0.35);
+  position: relative;
 }
+
 .list_posts h2,
 .detail h2,
 .create_post h2 {
+  font-family: "Paytone One", sans-serif;
+  text-transform: uppercase;
   border-radius: 5px 5px 0 0;
   color: white;
-  padding: 40px 5px;
+  padding: 30px 5px;
   margin: 0;
+  background: hsla(324, 91%, 46%, 1);
   background: linear-gradient(
-    135deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    45deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
   background: -moz-linear-gradient(
-    135deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    45deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
   background: -webkit-linear-gradient(
-    135deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    45deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
 }
 .detail h2 {
+  background: hsla(324, 91%, 46%, 1);
   background: linear-gradient(
-    315deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    225deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
   background: -moz-linear-gradient(
-    315deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    225deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
   background: -webkit-linear-gradient(
-    315deg,
-    hsla(183, 98%, 59%, 1) 30%,
-    hsla(201, 97%, 65%, 1) 84%
+    225deg,
+    hsla(324, 91%, 46%, 1) 0%,
+    hsla(18, 100%, 49%, 1) 100%
   );
 }
 .annonce:last-child {
   border-radius: 0 0 5px 5px;
 }
 .selected_post {
-  transform: scale(1.06);
-  border-left: 8px solid #6ec9fd;
-  box-shadow: 3px 3px 5px 3px #9ce6fd;
+  position: relative;
   z-index: 2;
-  border-radius: 5px;
+  box-shadow: 5px 5px 15px 5px #d8d8d8;
+}
+.selected_post::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background-color: #f84b00;
+  left: 0;
+  top: 0;
 }
 
-/* CREATEPOST PAGE */
-
-.create_post {
-  margin-top: 5%;
-  background-color: white;
-  box-shadow: 5px 5px 9px 5px #9ce6fd;
+.sort_filter_container {
+  margin-top: 10px;
+  text-align: right;
+  border-bottom: 1px solid #f0f0f0;
+}
+.sort_filter_container span {
+  font-weight: 100;
+  font-size: 13px;
+}
+.sort_filter_container button,
+.sort_filter_container select {
+  margin: 0 5px;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 7px;
+  margin: 6px;
   border-radius: 5px;
+  cursor: pointer;
+}
+.sort_filter_container .material-symbols-outlined {
+  vertical-align: middle;
+  font-size: 16px;
+}
+/* CREATEPOST PAGE */
+.create_btn {
+  background-color: white;
+  border: 3px solid #f84b00;
+  border-radius: 5px;
+  padding: 15px;
+  font-weight: bold;
+  font-family: "Paytone One", sans-serif;
+  color: #f84b00;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  position: relative;
+}
+
+.create_btn::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background-color: #f84b00;
+  right: -5px;
+  top: 5px;
+  z-index: -1;
+  border-radius: 5px;
+}
+/* POPUP */
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+}
+.create_post {
+  width: 35vw;
+  height: 80%;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 5;
+  cursor: initial;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+}
+.create_post .create_btn {
+  font-size: 15px;
+  position: absolute;
+  bottom: -20px;
+  left: 40%;
+}
+input,
+select {
+  border: none;
+  border-radius: 5px;
+}
+.create_post input,
+.create_post select {
+  background-color: #f0f0f0;
+  padding: 8px;
+  width: 180px;
+}
+.create_post p {
+  font-weight: bold;
+  line-height: 0.5;
+}
+input:focus,
+select:focus {
+  outline: none !important;
+  border: 1px solid #f84b00;
+}
+.error {
+  font-weight: normal;
+  font-size: 10px;
+  color: #f84b00;
+}
+.create_post .error {
+  display: block;
 }

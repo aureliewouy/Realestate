@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Main(models.Model):
     TRANSACTION_CHOICES = [('rental', 'Rental'), ('sale', 'Sale')]
-    REALTY_CHOICES = [('office', 'Office'), ('land_plot', 'Land_plot'),
+    REALTY_CHOICES = [('office', 'Office'), ('land plot', 'Land plot'),
                       ('warehouse', 'Warehouse'), ('retail', 'Retail'), ('coworking', 'Coworking')]
     title =  models.CharField(max_length=50, unique=True)
     address =  models.CharField(max_length=50, unique=True)
