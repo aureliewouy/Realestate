@@ -38,6 +38,7 @@ services:
 
   postgresql:
     image: postgres:13.0
+    restart: always
     volumes:
       - ./local_volumes/db/:/var/lib/postgresql/data
     environment:

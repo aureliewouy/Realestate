@@ -74,6 +74,22 @@ In order to run the project, you must first clone the project, then you can use 
 
 ```bash
 docker-compose build
-docker-compose up
+docker-compose up -d
 docker-compose down
+```
+## Whitout docker.
+Go to the api folder
+```bash
+python -m venv venv
+source venv/bin/activate  
+pip install -r requirements.txt
+python manage.py loaddata main/data/fakedata.json
+python manage.py migrate
+python api/manage.py runserver   
+```
+Go to the front folder 
+
+```bash
+npm install
+yarn start
 ```
