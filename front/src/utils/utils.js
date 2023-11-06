@@ -6,7 +6,7 @@ export const urls = {
   urlDelete: `http://127.0.0.1:8000/api/realestate-delete/`,
 };
 
-export const dateFormat = (date) => {
+export const dateFormat = (date, toUpdate) => {
   const monthNames = [
     "jan",
     "fév",
@@ -25,7 +25,10 @@ export const dateFormat = (date) => {
   const day = newDate.getDate();
   const month = monthNames[newDate.getMonth()];
   const year = newDate.getFullYear();
-
+  if (toUpdate) {
+    const monthIndex = newDate.getMonth() + 1;
+    return `${year}-${monthIndex}-${day.toString().padStart(2, "0")}`;
+  }
   return `${day} ${month} ${year}`;
 };
 

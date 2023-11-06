@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Main(models.Model):
@@ -9,7 +10,7 @@ class Main(models.Model):
     address =  models.CharField(max_length=50, unique=True)
     transaction_type =  models.CharField(max_length=6, choices=TRANSACTION_CHOICES)
     realty_type =  models.CharField(max_length=11, choices=REALTY_CHOICES)
-    publication_date= models.DateTimeField(auto_now_add=True)
-    
+    publication_date = models.DateTimeField(default=timezone.now, editable=True, blank=True)
+
     def __str__(self):
         return self.title

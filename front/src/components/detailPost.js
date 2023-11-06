@@ -18,14 +18,16 @@ function DetailPost(props) {
     if (dataSended !== null) {
       setEdit(false);
       setError(null);
-      handleChange(Math.random());
+      handleChange();
     }
+    // eslint-disable-next-line
   }, [dataSended, setError]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewdata({ ...newData, [name]: value });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const config = {
@@ -137,7 +139,21 @@ function DetailPost(props) {
               </p>
 
               <div className="detail_date">
-                <span>Le {dateFormat(data.publication_date)}</span>{" "}
+                {edit ? (
+                  <>
+                    <input
+                      type="date"
+                      name="publication_date"
+                      value={dateFormat(newData.publication_date, true)}
+                      onChange={handleInputChange}
+                    ></input>
+                    {error && error.hasOwnProperty("publication_date") && (
+                      <span className="error">*{error.publication_date}</span>
+                    )}
+                  </>
+                ) : (
+                  <span>Le {dateFormat(data.publication_date)}</span>
+                )}
               </div>
             </>
           )}

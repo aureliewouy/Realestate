@@ -17,8 +17,8 @@ function App() {
     }
   }, [setData, dataChange]);
 
-  const handleChange = (random) => {
-    setDataChange(random);
+  const handleChange = () => {
+    setDataChange(!dataChange);
   };
   const handleSelectedPost = (id) => {
     setSelectedPost(id);

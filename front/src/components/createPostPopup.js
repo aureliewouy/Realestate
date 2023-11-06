@@ -13,7 +13,7 @@ function CreatePostPopup(props) {
   });
   useEffect(() => {
     if (newPost !== null) {
-      props.handleChange(Math.random());
+      props.handleChange();
     }
     // eslint-disable-next-line
   }, [newPost]);
@@ -30,6 +30,7 @@ function CreatePostPopup(props) {
   };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
     setPost({ ...post, [name]: value });
   };
   return (
